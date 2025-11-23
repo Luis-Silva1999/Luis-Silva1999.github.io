@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CleiSantos - Fotógrafo Profissional</title>
+    <meta name="description" content="CleiSantos - Fotógrafo profissional especializado em ensaios, eventos e vídeos. Transformando momentos em memórias eternas.">
+    <meta name="keywords" content="fotógrafo, videomaker, ensaios, eventos, São Luís, CleiSantos">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -28,13 +30,14 @@
             color: var(--light);
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
         }
 
         /* Header e Navegação */
         header {
             background-color: rgba(26, 26, 46, 0.95);
             color: white;
-            padding: 1rem 2rem;
+            padding: 1rem 1.5rem;
             position: fixed;
             width: 100%;
             top: 0;
@@ -49,9 +52,10 @@
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
         }
 
-        /* Logo com Imagem MAIOR */
+        /* Logo com Imagem */
         .logo-container {
             position: relative;
             display: flex;
@@ -59,10 +63,11 @@
         }
 
         .logo-imagem {
-            height: 80px; /* Aumentei de 50px para 80px */
+            height: 60px;
             width: auto;
             transition: all 0.3s ease;
             cursor: pointer;
+            max-width: 100%;
         }
 
         .logo-imagem:hover {
@@ -70,14 +75,13 @@
             filter: brightness(1.2);
         }
 
-        /* Restante do CSS permanece exatamente igual */
         nav ul {
             display: flex;
             list-style: none;
         }
 
         nav li {
-            margin-left: 2rem;
+            margin-left: 1.5rem;
         }
 
         nav a {
@@ -87,6 +91,7 @@
             transition: all 0.3s;
             position: relative;
             padding: 0.5rem 0;
+            font-size: 1rem;
         }
 
         nav a:hover {
@@ -118,23 +123,31 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--accent);
+            background: none;
+            border: none;
+            padding: 0.5rem;
         }
 
         /* Conteúdo Principal */
         main {
             margin-top: 80px;
             min-height: calc(100vh - 160px);
+            width: 100%;
+            overflow-x: hidden;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1.5rem;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .page {
             display: none;
             animation: fadeIn 0.8s ease;
+            width: 100%;
         }
 
         .page.active {
@@ -155,8 +168,9 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
             position: relative;
+            width: 100%;
         }
 
         .hero::before {
@@ -174,13 +188,17 @@
             position: relative;
             z-index: 2;
             max-width: 800px;
+            width: 100%;
+            padding: 0 1rem;
         }
 
         .hero-content h1 {
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             margin-bottom: 1.5rem;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
             animation: textGlow 3s infinite alternate;
+            line-height: 1.2;
+            word-wrap: break-word;
         }
 
         @keyframes textGlow {
@@ -189,9 +207,9 @@
         }
 
         .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            margin-bottom: 2rem;
+            line-height: 1.6;
         }
 
         .btn {
@@ -209,6 +227,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            min-width: 160px;
         }
 
         .btn:hover {
@@ -220,17 +239,21 @@
         /* Seções Gerais */
         .section-title {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             position: relative;
+            width: 100%;
+            padding: 0 1rem;
         }
 
         .section-title h2 {
-            font-size: 3rem;
+            font-size: clamp(2rem, 4vw, 3rem);
             color: var(--accent);
             display: inline-block;
             padding-bottom: 15px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            line-height: 1.3;
+            word-wrap: break-word;
         }
 
         .section-title h2::after {
@@ -239,7 +262,7 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
+            width: 80px;
             height: 4px;
             background: linear-gradient(90deg, var(--accent), transparent);
             border-radius: 2px;
@@ -249,37 +272,41 @@
         .about-section {
             display: flex;
             align-items: center;
-            gap: 4rem;
-            margin-bottom: 6rem;
-            padding: 3rem;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            padding: 2rem;
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
+            border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .about-text {
             flex: 1;
+            min-width: 0;
         }
 
         .about-text h2 {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
             color: var(--accent);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            line-height: 1.3;
         }
 
         .about-text p {
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
-            line-height: 1.8;
+            line-height: 1.7;
             color: var(--light);
         }
 
         .about-image {
-            flex: 0 0 400px;
+            flex: 0 0 350px;
         }
 
         .about-image img {
@@ -287,6 +314,8 @@
             border-radius: 15px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
             transition: transform 0.4s;
+            max-width: 100%;
+            height: auto;
         }
 
         .about-image img:hover {
@@ -296,27 +325,30 @@
         /* Seção Trajetória */
         .trajectory-section {
             background: rgba(255, 255, 255, 0.05);
-            padding: 4rem;
-            border-radius: 20px;
-            margin-bottom: 6rem;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 4rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .trajectory-section h2 {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
             color: var(--accent);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 1px;
+            line-height: 1.3;
         }
 
         .trajectory-section p {
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
-            line-height: 1.8;
+            line-height: 1.7;
             text-align: center;
             color: var(--light);
         }
@@ -325,12 +357,13 @@
             max-width: 600px;
             margin: 2rem auto 0;
             list-style: none;
+            width: 100%;
         }
 
         .trajectory-list li {
             background: rgba(244, 208, 63, 0.1);
             margin-bottom: 1rem;
-            padding: 1.5rem;
+            padding: 1.2rem;
             border-radius: 10px;
             border-left: 4px solid var(--accent);
             font-size: 1.1rem;
@@ -348,17 +381,19 @@
         /* Seção Habilidades */
         .skills-section {
             margin-bottom: 4rem;
+            width: 100%;
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            width: 100%;
         }
 
         .skill-item {
             background: rgba(255, 255, 255, 0.05);
-            padding: 3rem 2rem;
+            padding: 2.5rem 1.5rem;
             border-radius: 15px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -375,10 +410,11 @@
 
         .skill-item h3 {
             color: var(--accent);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            line-height: 1.3;
         }
 
         .skill-item p {
@@ -390,9 +426,10 @@
         /* Página Portfólio */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
             margin-top: 3rem;
+            width: 100%;
         }
 
         .portfolio-item {
@@ -407,7 +444,7 @@
 
         .portfolio-img {
             width: 100%;
-            height: 280px;
+            height: 250px;
             object-fit: cover;
             display: block;
             transition: transform 0.5s;
@@ -424,7 +461,7 @@
             right: 0;
             background: linear-gradient(transparent, rgba(22, 33, 62, 0.95));
             color: white;
-            padding: 2rem;
+            padding: 1.5rem;
             transform: translateY(100%);
             transition: transform 0.4s;
         }
@@ -435,21 +472,23 @@
 
         .portfolio-overlay h3 {
             margin-bottom: 0.8rem;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: var(--accent);
+            line-height: 1.3;
         }
 
         /* Botão Mostrar Mais */
         .show-more-container {
             text-align: center;
             margin: 3rem 0;
+            width: 100%;
         }
 
         .show-more-btn {
             background: linear-gradient(135deg, var(--accent), #e67e22);
             color: var(--primary);
             border: none;
-            padding: 1rem 2.5rem;
+            padding: 1rem 2rem;
             font-size: 1.1rem;
             font-weight: 700;
             border-radius: 50px;
@@ -458,6 +497,7 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             text-transform: uppercase;
             letter-spacing: 1px;
+            min-width: 160px;
         }
 
         .show-more-btn:hover {
@@ -470,22 +510,26 @@
         .works-filter {
             display: flex;
             justify-content: center;
-            margin: 3rem 0;
+            margin: 2rem 0;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 0.8rem;
+            width: 100%;
+            padding: 0 1rem;
         }
 
         .filter-btn {
             background: rgba(255, 255, 255, 0.1);
             border: 2px solid transparent;
-            padding: 0.8rem 2rem;
+            padding: 0.8rem 1.5rem;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
             color: var(--light);
             transition: all 0.3s;
             border-radius: 50px;
             backdrop-filter: blur(10px);
+            min-width: 120px;
+            text-align: center;
         }
 
         .filter-btn.active, .filter-btn:hover {
@@ -497,9 +541,10 @@
 
         .works-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 4rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            width: 100%;
         }
 
         .work-item {
@@ -508,7 +553,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             background: var(--secondary);
             transition: all 0.4s;
-            display: none; /* Inicialmente oculto para a funcionalidade "Mostrar Mais" */
+            display: none;
         }
 
         .work-item.visible {
@@ -518,24 +563,26 @@
 
         .work-img {
             width: 100%;
-            height: 250px;
+            height: 220px;
             object-fit: cover;
         }
 
         .work-content {
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .work-content h3 {
             margin-bottom: 1rem;
             color: var(--accent);
-            font-size: 1.4rem;
+            font-size: 1.3rem;
+            line-height: 1.3;
+            word-wrap: break-word;
         }
 
         .work-content p {
             color: var(--text-light);
             margin-bottom: 1.5rem;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         .work-tags {
@@ -547,7 +594,7 @@
         .work-tag {
             background: rgba(244, 208, 63, 0.2);
             color: var(--accent);
-            padding: 0.4rem 1rem;
+            padding: 0.4rem 0.8rem;
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 600;
@@ -557,12 +604,14 @@
         /* Seção de Vídeos */
         .videos-section {
             margin-top: 4rem;
+            width: 100%;
         }
 
         .videos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            width: 100%;
         }
 
         .video-item {
@@ -581,42 +630,44 @@
         .video-container {
             position: relative;
             width: 100%;
-            height: 250px;
+            height: 220px;
             overflow: hidden;
         }
 
         .video-container video {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
         }
 
         .video-content {
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .video-content h3 {
             margin-bottom: 1rem;
             color: var(--accent);
-            font-size: 1.4rem;
+            font-size: 1.3rem;
+            line-height: 1.3;
         }
 
         .video-content p {
             color: var(--text-light);
             margin-bottom: 1.5rem;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         /* Página Contato */
         .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            width: 100%;
         }
 
         .contact-info {
             background: rgba(255, 255, 255, 0.05);
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
@@ -625,15 +676,16 @@
 
         .contact-info h3 {
             color: var(--accent);
-            margin-bottom: 2rem;
-            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
             text-align: center;
+            line-height: 1.3;
         }
 
         .contact-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             padding: 1rem;
             border-radius: 10px;
             transition: background 0.3s;
@@ -646,26 +698,27 @@
         .contact-icon {
             background: linear-gradient(135deg, var(--accent), #e67e22);
             color: var(--primary);
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 1.5rem;
+            margin-right: 1.2rem;
             flex-shrink: 0;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         .contact-details h4 {
             margin-bottom: 0.5rem;
             color: var(--accent);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            line-height: 1.3;
         }
 
         .contact-form {
             background: rgba(255, 255, 255, 0.05);
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
@@ -674,13 +727,14 @@
 
         .contact-form h3 {
             color: var(--accent);
-            margin-bottom: 2rem;
-            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
             text-align: center;
+            line-height: 1.3;
         }
 
         .form-group {
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
@@ -688,6 +742,7 @@
             margin-bottom: 0.8rem;
             font-weight: 600;
             color: var(--accent);
+            font-size: 1rem;
         }
 
         .form-control {
@@ -699,6 +754,7 @@
             font-size: 1rem;
             transition: all 0.3s;
             color: var(--light);
+            box-sizing: border-box;
         }
 
         .form-control:focus {
@@ -709,7 +765,7 @@
         }
 
         textarea.form-control {
-            min-height: 150px;
+            min-height: 120px;
             resize: vertical;
         }
 
@@ -717,33 +773,36 @@
         footer {
             background: var(--primary);
             color: white;
-            padding: 3rem 2rem;
+            padding: 2rem 1.5rem;
             text-align: center;
             margin-top: 4rem;
+            width: 100%;
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            margin: 2rem 0;
+            margin: 1.5rem 0;
             gap: 1rem;
+            flex-wrap: wrap;
         }
 
         .social-link {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--accent), #e67e22);
             color: var(--primary);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             transition: all 0.3s;
             text-decoration: none;
         }
@@ -756,7 +815,8 @@
         .copyright {
             color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
+            line-height: 1.5;
         }
 
         /* Modal */
@@ -771,12 +831,13 @@
             z-index: 2000;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            padding: 1rem;
             animation: fadeIn 0.3s;
+            box-sizing: border-box;
         }
 
         .modal-content {
-            max-width: 900px;
+            max-width: 90%;
             width: 100%;
             background: var(--secondary);
             border-radius: 15px;
@@ -787,26 +848,27 @@
 
         .modal-img {
             width: 100%;
-            max-height: 70vh;
+            max-height: 50vh;
             object-fit: contain;
         }
 
         .modal-close {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 15px;
+            right: 15px;
             background: rgba(0, 0, 0, 0.7);
             color: var(--accent);
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             transition: all 0.3s;
             border: 2px solid var(--accent);
+            z-index: 2001;
         }
 
         .modal-close:hover {
@@ -816,32 +878,63 @@
         }
 
         .modal-info {
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .modal-info h3 {
             margin-bottom: 1rem;
             color: var(--accent);
-            font-size: 1.8rem;
+            font-size: 1.5rem;
+            line-height: 1.3;
         }
 
         .modal-info p {
             color: var(--text-light);
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
-        /* Responsividade MELHORADA */
-        @media (max-width: 768px) {
+        /* ========== RESPONSIVIDADE ========== */
+        @media (max-width: 1024px) {
             .header-container {
-                flex-direction: column;
-                align-items: flex-start;
                 padding: 1rem;
+            }
+            
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .about-section {
+                gap: 2rem;
+                padding: 1.5rem;
+            }
+            
+            .about-image {
+                flex: 0 0 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 0.8rem 1rem;
+            }
+
+            .header-container {
+                flex-direction: row;
+                align-items: center;
+                padding: 0.5rem 1rem;
             }
 
             nav {
                 width: 100%;
-                margin-top: 1rem;
+                margin-top: 0;
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: rgba(26, 26, 46, 0.98);
+                backdrop-filter: blur(20px);
+                padding: 1rem;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
             }
 
             nav.active {
@@ -851,21 +944,45 @@
             nav ul {
                 flex-direction: column;
                 gap: 0.5rem;
+                width: 100%;
             }
 
             nav li {
                 margin: 0;
+                width: 100%;
+            }
+
+            nav a {
+                display: block;
+                padding: 1rem;
+                text-align: center;
+                border-radius: 8px;
+                transition: all 0.3s;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            nav a:hover {
+                background: rgba(244, 208, 63, 0.1);
             }
 
             .mobile-menu {
                 display: block;
-                position: absolute;
-                top: 1rem;
-                right: 1rem;
+                position: static;
+                margin-left: auto;
             }
 
             .logo-imagem {
-                height: 60px; /* Ajuste proporcional para mobile */
+                height: 50px;
+            }
+
+            main {
+                margin-top: 70px;
+            }
+
+            .hero {
+                height: 70vh;
+                padding: 0 1rem;
             }
 
             .hero-content h1 {
@@ -881,6 +998,8 @@
             .btn {
                 padding: 0.8rem 1.5rem;
                 font-size: 1rem;
+                width: auto;
+                min-width: 140px;
             }
 
             .about-section {
@@ -895,6 +1014,7 @@
                 width: 100%;
                 max-width: 300px;
                 margin: 0 auto;
+                order: -1;
             }
 
             .about-text h2 {
@@ -920,24 +1040,21 @@
             }
 
             .works-filter {
-                flex-direction: column;
+                flex-direction: row;
                 align-items: center;
                 gap: 0.5rem;
+                justify-content: center;
             }
 
             .filter-btn {
-                width: 100%;
-                max-width: 200px;
-            }
-
-            /* Ajustes para textos menores */
-            .hero {
-                height: 70vh;
-                padding: 0 1rem;
+                width: auto;
+                min-width: 110px;
+                padding: 0.7rem 1.2rem;
+                font-size: 0.85rem;
             }
 
             .trajectory-section {
-                padding: 2rem 1rem;
+                padding: 1.5rem 1rem;
             }
 
             .skill-item {
@@ -948,7 +1065,6 @@
                 padding: 1.5rem;
             }
 
-            /* Melhorias para touch */
             .nav-link, .btn, .filter-btn, .show-more-btn {
                 min-height: 44px;
                 display: flex;
@@ -956,7 +1072,6 @@
                 justify-content: center;
             }
 
-            /* Ajuste de imagens no mobile */
             .portfolio-img, .work-img {
                 height: 200px;
             }
@@ -964,9 +1079,16 @@
             .video-container {
                 height: 200px;
             }
+            
+            .modal-content {
+                max-width: 95%;
+            }
+            
+            .modal-img {
+                max-height: 40vh;
+            }
         }
 
-        /* Ajustes para telas muito pequenas */
         @media (max-width: 480px) {
             .hero-content h1 {
                 font-size: 1.8rem;
@@ -985,21 +1107,83 @@
             }
 
             .logo-imagem {
-                height: 50px; /* Ajuste proporcional para telas muito pequenas */
+                height: 40px;
+            }
+            
+            .works-filter {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .filter-btn {
+                width: 100%;
+                max-width: 200px;
+            }
+            
+            .btn, .show-more-btn {
+                width: 100%;
+                max-width: 200px;
+            }
+            
+            .about-section, .trajectory-section, .skill-item {
+                padding: 1rem;
+            }
+            
+            .container {
+                padding: 0.8rem;
+            }
+            
+            .hero {
+                height: 60vh;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero-content h1 {
+                font-size: 1.6rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.3rem;
+            }
+            
+            .logo-imagem {
+                height: 35px;
+            }
+            
+            .works-grid, .portfolio-grid, .videos-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
+        /* Prevenir zoom em inputs no iOS */
+        @media screen and (max-width: 768px) {
+            input, select, textarea {
+                font-size: 16px !important;
+            }
+        }
+
+        /* Melhorar performance */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header CORRIGIDO -->
+    <!-- Header -->
     <header>
         <div class="header-container">
             <div class="logo-container">
-                <img src="Imagem/logo.png" alt="CleiSantos Fotografia" class="logo-imagem">
+                <img src="Imagem/logo.png" alt="CleiSantos Fotografia - Logo profissional" class="logo-imagem">
             </div>
-            <div class="mobile-menu">
+            <button class="mobile-menu" aria-label="Menu mobile">
                 <i class="fas fa-bars"></i>
-            </div>
+            </button>
             <nav>
                 <ul>
                     <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
@@ -1011,7 +1195,6 @@
         </div>
     </header>
 
-    <!-- Restante do código HTML permanece exatamente igual -->
     <main>
         <!-- Página Home -->
         <section id="home" class="page active">
@@ -1043,7 +1226,7 @@
                         <p>Para mim, cada clique é uma oportunidade de contar uma história, de transmitir emoção e de criar conexões duradouras entre pessoas e momentos.</p>
                     </div>
                     <div class="about-image">
-                        <img src="Imagem/clei1.png" alt="Cleilson Santos - Fotógrafo">
+                        <img src="Imagem/clei1.png" alt="Cleilson Santos - Fotógrafo profissional" loading="lazy">
                     </div>
                 </div>
 
@@ -1096,11 +1279,11 @@
                     <h2>MEUS TRABALHOS</h2>
                 </div>
                 <div class="works-filter">
-                    <button class="filter-btn active" data-filter="all">Todos</button>
-                    <button class="filter-btn" data-filter="Registro Urbano">Registro Urbano</button>
-                    <button class="filter-btn" data-filter="ensaios">Ensaios</button>
-                    <button class="filter-btn" data-filter="eventos">Eventos</button>
-                    <button class="filter-btn" data-filter="viagens">Viagens</button>
+                    <button class="filter-btn active" data-filter="all" aria-label="Mostrar todos os trabalhos">Todos</button>
+                    <button class="filter-btn" data-filter="Registro Urbano" aria-label="Filtrar por Registro Urbano">Registro Urbano</button>
+                    <button class="filter-btn" data-filter="ensaios" aria-label="Filtrar por Ensaios">Ensaios</button>
+                    <button class="filter-btn" data-filter="eventos" aria-label="Filtrar por Eventos">Eventos</button>
+                    <button class="filter-btn" data-filter="viagens" aria-label="Filtrar por Viagens">Viagens</button>
                 </div>
                 <div class="works-grid">
                     <!-- Itens de trabalhos serão adicionados via JavaScript -->
@@ -1117,7 +1300,7 @@
                     <div class="videos-grid">
                         <div class="video-item">
                             <div class="video-container">
-                                <video controls poster="Imagem/clei6.png">
+                                <video controls poster="Imagem/clei6.png" aria-label="Vídeo de ensaios na MOTA Studio">
                                     <source src="Video/VID-4.mp4" type="video/mp4">
                                     Seu navegador não suporta o elemento de vídeo.
                                 </video>
@@ -1129,7 +1312,7 @@
                         </div>
                         <div class="video-item">
                             <div class="video-container">
-                                <video controls poster="Imagem/clei2.jpeg">
+                                <video controls poster="Imagem/clei2.jpeg" aria-label="Vídeo do Centro Histórico de São Luís">
                                     <source src="Video/VID-1.mp4" type="video/mp4">
                                     Seu navegador não suporta o elemento de vídeo.
                                 </video>
@@ -1141,7 +1324,7 @@
                         </div>
                         <div class="video-item">
                             <div class="video-container">
-                                <video controls poster="Imagem/clei4.png">
+                                <video controls poster="Imagem/clei4.png" aria-label="Vídeo do casamento Joyce e Nicola">
                                     <source src="Video/VID-2.mp4" type="video/mp4">
                                     Seu navegador não suporta o elemento de vídeo.
                                 </video>
@@ -1153,7 +1336,7 @@
                         </div>
                         <div class="video-item">
                             <div class="video-container">
-                                <video controls poster="Imagem/clei7.png">
+                                <video controls poster="Imagem/clei7.png" aria-label="Vídeo do Lampiões Boteco e Petiscaria">
                                     <source src="Video/VID-5.mp4" type="video/mp4">
                                     Seu navegador não suporta o elemento de vídeo.
                                 </video>
@@ -1179,7 +1362,7 @@
                         <h3>INFORMAÇÕES DE CONTATO</h3>
                         <div class="contact-item">
                             <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                             </div>
                             <div class="contact-details">
                                 <h4>Localização</h4>
@@ -1188,7 +1371,7 @@
                         </div>
                         <div class="contact-item">
                             <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
+                                <i class="fas fa-phone" aria-hidden="true"></i>
                             </div>
                             <div class="contact-details">
                                 <h4>Telefone/WhatsApp</h4>
@@ -1197,7 +1380,7 @@
                         </div>
                         <div class="contact-item">
                             <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
                             </div>
                             <div class="contact-details">
                                 <h4>Email</h4>
@@ -1206,7 +1389,7 @@
                         </div>
                         <div class="contact-item">
                             <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
+                                <i class="fas fa-clock" aria-hidden="true"></i>
                             </div>
                             <div class="contact-details">
                                 <h4>Horário de Atendimento</h4>
@@ -1219,19 +1402,19 @@
                         <form id="contactForm">
                             <div class="form-group">
                                 <label for="name">Nome</label>
-                                <input type="text" id="name" class="form-control" required>
+                                <input type="text" id="name" class="form-control" required aria-required="true">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" class="form-control" required>
+                                <input type="email" id="email" class="form-control" required aria-required="true">
                             </div>
                             <div class="form-group">
                                 <label for="subject">Assunto</label>
-                                <input type="text" id="subject" class="form-control" required>
+                                <input type="text" id="subject" class="form-control" required aria-required="true">
                             </div>
                             <div class="form-group">
                                 <label for="message">Mensagem</label>
-                                <textarea id="message" class="form-control" required></textarea>
+                                <textarea id="message" class="form-control" required aria-required="true"></textarea>
                             </div>
                             <button type="submit" class="btn">Enviar Mensagem</button>
                         </form>
@@ -1244,7 +1427,7 @@
     <!-- Modal para imagens -->
     <div class="modal" id="imageModal">
         <div class="modal-content">
-            <span class="modal-close">&times;</span>
+            <span class="modal-close" aria-label="Fechar modal">&times;</span>
             <img class="modal-img" src="" alt="">
             <div class="modal-info">
                 <h3 id="modalTitle"></h3>
@@ -1258,16 +1441,16 @@
         <div class="footer-content">
             <p>Fotógrafo profissional especializado em capturar os melhores momentos da sua vida</p>
             <div class="social-links">
-                <a href="https://www.instagram.com/cleisanntos?igsh=b2tyY2E1cXN0amd5" class="social-link" target="_blank">
+                <a href="https://www.instagram.com/cleisanntos?igsh=b2tyY2E1cXN0amd5" class="social-link" target="_blank" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="#" class="social-link">
+                <a href="#" class="social-link" aria-label="Facebook">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="https://wa.me/5598981534901" class="social-link" target="_blank">
+                <a href="https://wa.me/5598981534901" class="social-link" target="_blank" aria-label="WhatsApp">
                     <i class="fab fa-whatsapp"></i>
                 </a>
-                <a href="#" class="social-link">
+                <a href="#" class="social-link" aria-label="YouTube">
                     <i class="fab fa-youtube"></i>
                 </a>
             </div>
@@ -1275,7 +1458,6 @@
         </div>
     </footer>
 
-    <!-- JavaScript permanece exatamente igual -->
     <script>
         // Dados para o portfólio do CleiSantos
         const portfolioItems = [
@@ -1418,7 +1600,7 @@
                 description: "Série fotográfica documental durante expedição por paisagens exóticas. Cada imagem conta uma história de descoberta e conexão com a natureza.",
                 tags: ["Viagem", "Documental", "Natureza"]
             },
-            // Adicionando mais itens para testar a funcionalidade "Mostrar Mais"
+            // CORREÇÃO APLICADA: Removido caractere extra na linha abaixo
             {
                 id: 10,
                 title: "ENCANTOS E SABORES DA FEIRINHA",
@@ -1432,7 +1614,7 @@
                 title: "CORES QUE CONTAM HISTÓRIAS",
                 category: "eventos",
                 image: "Imagem/IMG_11.jpg",
-                description: "Onde os sabores, as risadas e a tradição se encontram! .",
+                description: "Onde os sabores, as risadas e a tradição se encontram!",
                 tags: ["Tradição", "Comunidade", "Autenticidade"]
             },
             {
@@ -1474,7 +1656,7 @@
                 image: "Imagem/IMG_18.jpg",
                 description: "Uma figura cativante sentada à beira-mar, exalando beleza e uma espontaneidade que se conecta com a paisagem.",
                 tags: ["Encanto", "Charme", "Desejo"]
-                            },
+            },
             {
                 id: 17,
                 title: "ONDE A ALMA DESCANSA",
@@ -1520,7 +1702,7 @@
                 title: "BELEZA NATURAL",
                 category: "viagens",
                 image: "Imagem/IMG_23.jpg",
-                description:  "Um retrato vibrante que destaca a conexão entre a modelo, a água cristalina e a energia tropical do ambiente.",
+                description: "Um retrato vibrante que destaca a conexão entre a modelo, a água cristalina e a energia tropical do ambiente.",
                 tags: ["Água Cristalina", "Tropical", "Retrato"]
             },
             {
@@ -1592,7 +1774,7 @@
 
         // Variáveis para controle da funcionalidade "Mostrar Mais"
         let worksVisibleCount = 0;
-        const itemsPerLoad = 6; // Quantos itens carregar a cada clique
+        const itemsPerLoad = 6;
 
         // Navegação entre páginas
         navLinks.forEach(link => {
@@ -1627,14 +1809,14 @@
             nav.classList.toggle('active');
         });
 
-        // Carregar portfólio completo (sem funcionalidade "Mostrar Mais")
+        // Carregar portfólio completo
         function loadPortfolio() {
             portfolioGrid.innerHTML = '';
             portfolioItems.forEach(item => {
                 const portfolioItem = document.createElement('div');
                 portfolioItem.className = 'portfolio-item';
                 portfolioItem.innerHTML = `
-                    <img src="${item.image}" alt="${item.title}" class="portfolio-img">
+                    <img src="${item.image}" alt="${item.title}" class="portfolio-img" loading="lazy">
                     <div class="portfolio-overlay">
                         <h3>${item.title}</h3>
                         <p>${item.description}</p>
@@ -1662,7 +1844,7 @@
                 const workItem = document.createElement('div');
                 workItem.className = 'work-item visible';
                 workItem.innerHTML = `
-                    <img src="${item.image}" alt="${item.title}" class="work-img">
+                    <img src="${item.image}" alt="${item.title}" class="work-img" loading="lazy">
                     <div class="work-content">
                         <h3>${item.title}</h3>
                         <p>${item.description}</p>
