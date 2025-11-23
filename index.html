@@ -51,102 +51,26 @@
             margin: 0 auto;
         }
 
-        /* Nova Logo Animada CleiSantos */
+        /* Logo com Imagem MAIOR */
         .logo-container {
             position: relative;
             display: flex;
             align-items: center;
         }
 
-        .logo-animado {
-            display: flex;
-            align-items: center;
-            position: relative;
+        .logo-imagem {
+            height: 80px; /* Aumentei de 50px para 80px */
+            width: auto;
+            transition: all 0.3s ease;
             cursor: pointer;
         }
 
-        .logo-text {
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--light);
-            transition: all 0.3s ease;
+        .logo-imagem:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
         }
 
-        .logo-destaque {
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            background: linear-gradient(45deg, var(--accent), #e67e22, var(--accent));
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: gradientShift 3s ease infinite;
-            transition: all 0.3s ease;
-        }
-
-        .camera-icon {
-            font-size: 1.2rem;
-            margin-left: 10px;
-            opacity: 0;
-            transform: translateX(-10px);
-            transition: all 0.3s ease;
-            animation: cameraPulse 2s ease-in-out infinite 1s;
-        }
-
-        .logo-animado:hover .logo-text {
-            transform: translateX(-5px);
-        }
-
-        .logo-animado:hover .logo-destaque {
-            text-shadow: 0 0 20px rgba(244, 208, 63, 0.5);
-            transform: translateX(5px);
-        }
-
-        .logo-animado:hover .camera-icon {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        @keyframes gradientShift {
-            0%, 100% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-        }
-
-        @keyframes cameraPulse {
-            0%, 100% {
-                transform: scale(1) rotate(0deg);
-            }
-            50% {
-                transform: scale(1.1) rotate(5deg);
-            }
-        }
-
-        /* Efeito de brilho na logo */
-        .logo-animado::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 0;
-            height: 0;
-            background: radial-gradient(circle, rgba(244, 208, 63, 0.3) 0%, transparent 70%);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            z-index: -1;
-        }
-
-        .logo-animado:hover::after {
-            width: 120px;
-            height: 120px;
-        }
-
+        /* Restante do CSS permanece exatamente igual */
         nav ul {
             display: flex;
             list-style: none;
@@ -481,11 +405,6 @@
             background: var(--secondary);
         }
 
-        .portfolio-item:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 20px 40px rgba(244, 208, 63, 0.2);
-        }
-
         .portfolio-img {
             width: 100%;
             height: 280px;
@@ -518,6 +437,33 @@
             margin-bottom: 0.8rem;
             font-size: 1.4rem;
             color: var(--accent);
+        }
+
+        /* Botão Mostrar Mais */
+        .show-more-container {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .show-more-btn {
+            background: linear-gradient(135deg, var(--accent), #e67e22);
+            color: var(--primary);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .show-more-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(135deg, #e67e22, var(--accent));
         }
 
         /* Página Trabalhos */
@@ -562,11 +508,12 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             background: var(--secondary);
             transition: all 0.4s;
+            display: none; /* Inicialmente oculto para a funcionalidade "Mostrar Mais" */
         }
 
-        .work-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(244, 208, 63, 0.2);
+        .work-item.visible {
+            display: block;
+            animation: fadeIn 0.5s ease;
         }
 
         .work-img {
@@ -641,7 +588,7 @@
         .video-container video {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         .video-content {
@@ -917,18 +864,8 @@
                 right: 1rem;
             }
 
-            .logo-text, .logo-destaque {
-                font-size: 1.5rem;
-            }
-            
-            .camera-icon {
-                font-size: 1rem;
-                margin-left: 5px;
-            }
-            
-            .logo-animado:hover::after {
-                width: 80px;
-                height: 80px;
+            .logo-imagem {
+                height: 60px; /* Ajuste proporcional para mobile */
             }
 
             .hero-content h1 {
@@ -1012,7 +949,7 @@
             }
 
             /* Melhorias para touch */
-            .nav-link, .btn, .filter-btn {
+            .nav-link, .btn, .filter-btn, .show-more-btn {
                 min-height: 44px;
                 display: flex;
                 align-items: center;
@@ -1047,22 +984,18 @@
                 font-size: 1.5rem;
             }
 
-            .logo-text, .logo-destaque {
-                font-size: 1.3rem;
+            .logo-imagem {
+                height: 50px; /* Ajuste proporcional para telas muito pequenas */
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header CORRIGIDO -->
     <header>
         <div class="header-container">
             <div class="logo-container">
-                <div class="logo-animado">
-                    <span class="logo-text">CLEI</span>
-                    <span class="logo-destaque">SANTOS</span>
-                    <div class="camera-icon">📸</div>
-                </div>
+                <img src="Imagem/logo.png" alt="CleiSantos Fotografia" class="logo-imagem">
             </div>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
@@ -1078,7 +1011,7 @@
         </div>
     </header>
 
-    <!-- Conteúdo Principal -->
+    <!-- Restante do código HTML permanece exatamente igual -->
     <main>
         <!-- Página Home -->
         <section id="home" class="page active">
@@ -1086,7 +1019,7 @@
                 <div class="hero-content">
                     <h1>CLEI SANTOS</h1>
                     <p>Fotógrafo & Videomaker | Transformando momentos em memórias eternas através da minha lente</p>
-                    <p>Especialista em ensaios e eventos com mais de 1 anos de experiência</p>
+                    <p>Especialista em ensaios e eventos com mais de 1 ano de experiência</p>
                     <a href="#" class="btn nav-link" data-page="portfolio">Ver Portfólio</a>
                 </div>
             </div>
@@ -1120,7 +1053,7 @@
                     <p>Ao longo da minha trajetória, venho aprimorando minhas habilidades em fotografia e videomaker, explorando diferentes estilos, técnicas e perspectivas.</p>
                     <p>Cada projeto é uma nova oportunidade de inovar, surpreender e superar expectativas. Meu objetivo é que cada imagem e cada vídeo não apenas mostrem, mas despertem sentimentos, inspirem e marquem quem os contempla.</p>
                     <ul class="trajectory-list">
-                        <li><strong>Formação Inicial:</strong> Experiência como Guia Turístico (2022-2025)</li>
+                        <li><strong>Inicial:</strong> Experiência como Guia Turístico (2022-2025)</li>
                         <li><strong>Transição Profissional:</strong> Fotógrafo e Videomaker Autodidata (2023-atual)</li>
                     </ul>
                 </div>
@@ -1172,6 +1105,9 @@
                 <div class="works-grid">
                     <!-- Itens de trabalhos serão adicionados via JavaScript -->
                 </div>
+                <div class="show-more-container" id="worksShowMoreContainer">
+                    <button class="show-more-btn" id="worksShowMoreBtn">Mostrar Mais</button>
+                </div>
                 
                 <!-- Seção de Vídeos -->
                 <div class="videos-section">
@@ -1179,6 +1115,18 @@
                         <h2>VÍDEOS</h2>
                     </div>
                     <div class="videos-grid">
+                        <div class="video-item">
+                            <div class="video-container">
+                                <video controls poster="Imagem/clei6.png">
+                                    <source src="Video/VID-4.mp4" type="video/mp4">
+                                    Seu navegador não suporta o elemento de vídeo.
+                                </video>
+                            </div>
+                            <div class="video-content">
+                                <h3>Ensaios na MOTA Studio</h3>
+                                <p>Cada detalhe conta uma história. Quando a visão é clara, o resultado fala por si.</p>
+                            </div>
+                        </div>
                         <div class="video-item">
                             <div class="video-container">
                                 <video controls poster="Imagem/clei2.jpeg">
@@ -1205,14 +1153,14 @@
                         </div>
                         <div class="video-item">
                             <div class="video-container">
-                                <video controls poster="Imagem/IMG_8.jpg">
-                                    <source src="Video/VID-3.mp4" type="video/mp4">
+                                <video controls poster="Imagem/clei7.png">
+                                    <source src="Video/VID-5.mp4" type="video/mp4">
                                     Seu navegador não suporta o elemento de vídeo.
                                 </video>
                             </div>
                             <div class="video-content">
-                                <h3>Ensaio Gestante</h3>
-                                <p>Sessão fotográfica delicada capturando a beleza e emoção da espera em ambiente sereno.</p>
+                                <h3>Lampiões Boteco e Petiscaria</h3>
+                                <p>Aquele samba em que você se sente em casa! Lampiões Boteco é o lugar onde a energia do Centro Histórico se encontra com a alegria de quem ama um bom pagode. Cerveja gelada, petiscos de primeira e música boa ao ar livre.</p>
                             </div>
                         </div>
                     </div>
@@ -1308,11 +1256,6 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="logo-animado">
-                <span class="logo-text">CLEI</span>
-                <span class="logo-destaque">SANTOS</span>
-                <div class="camera-icon">📸</div>
-            </div>
             <p>Fotógrafo profissional especializado em capturar os melhores momentos da sua vida</p>
             <div class="social-links">
                 <a href="https://www.instagram.com/cleisanntos?igsh=b2tyY2E1cXN0amd5" class="social-link" target="_blank">
@@ -1332,12 +1275,13 @@
         </div>
     </footer>
 
+    <!-- JavaScript permanece exatamente igual -->
     <script>
         // Dados para o portfólio do CleiSantos
         const portfolioItems = [
             {
                 id: 1,
-                title: "Ensaio Casal - Lencóis Maranhenses",
+                title: "Ensaio Casal - Lençóis Maranhenses",
                 category: "ensaios",
                 image: "Imagem/IMG_1.jpg",
                 description: "Ensaio romântico de casal nos belíssimos Lençóis Maranhenses, capturando o amor em meio às dunas e lagoas."
@@ -1351,7 +1295,7 @@
             },
             {
                 id: 3,
-                title: "Ensaio Gestante",
+                title: "Cobertura de um baby chá",
                 category: "ensaios",
                 image: "Imagem/IMG_8.jpg",
                 description: "Sessão fotográfica delicada capturando a beleza e emoção da espera em ambiente sereno."
@@ -1364,19 +1308,40 @@
                 description: "Cobertura completa de evento cultural mostrando a energia e tradição das celebrações populares."
             },
             {
-                id: 5,
-                title: "Ensaio Família",
-                category: "ensaios",
-                image: "Imagem/IMG_2.jpg",
-                description: "Sessão familiar cheia de amor e alegria, eternizando os laços e momentos especiais."
-            },
-            {
                 id: 6,
                 title: "Viagem - Pousada Cocal",
                 category: "viagens",
                 image: "Imagem/IMG_4.jpg",
                 description: "Luz dourada, silhuetas e a tranquilidade do fim de tarde. Um instante comum transformado em poesia visual, onde a atmosfera fala mais do que as palavras."
-            }
+            },
+            {
+                id: 7,
+                title: "Ensaio Urbano",
+                category: "ensaios",
+                image: "Imagem/IMG_7.jpg",
+                description: "Sessão lifestyle capturando a autenticidade e conexão do casal em cenário urbano."
+            },
+            {
+                id: 8,
+                title: "Retrato Artístico",
+                category: "ensaios",
+                image: "Imagem/IMG_9.jpg",
+                description: "Sessão de retratos artísticos explorando luzes e sombras para criar imagens impactantes."
+            },
+            {
+                id: 10,
+                title: "Viagem - Lençóis Maranhenses",
+                category: "viagens",
+                image: "Imagem/IMG_3.jpg",
+                description: "Ensaio de viagem, capturando a alegria e a liberdade da alma em cenário praiano."
+            },
+            {
+                id: 12,
+                title: "Retrato Urbano",
+                category: "Registro Urbano",
+                image: "Imagem/IMG_6.png",
+                description: "Sessão de retratos no centro histórico, destacando a essência vibrante da cidade."
+            },
         ];
 
         // Dados para os trabalhos do CleiSantos
@@ -1399,10 +1364,10 @@
             },
             {
                 id: 3,
-                title: "ENSAIOS DE FAMÍLIA COM UNIÃO E ALEGRIA",
+                title: "COBERTURA DE UM BABY CHÁ",
                 category: "eventos",
                 image: "Imagem/IMG_2.jpg",
-                description: "Ensaio de família que transmitem união e alegria.",
+                description: "Cobertura de um baby chá que transmitem união e alegria.",
                 tags: ["Família", "Conexão", "Amor"]
             },
             {
@@ -1430,7 +1395,7 @@
                 tags: ["Liberdade", "Jornada", "Viagem"]
             },
             {
-                       id: 7,
+                id: 7,
                 title: "SESSÃO DE RETRATO ARTÍSTICO EXPLORANDO IDENTIDADE E ESTILO",
                 category: "ensaios",
                 image: "Imagem/IMG_9.jpg",
@@ -1438,7 +1403,7 @@
                 tags: ["Inspiração", "Beleza", "Serenidade"]
             },
             {
-                              id: 8,
+                id: 8,
                 title: "SESSÃO DE RETRATO NO CENTRO HISTÓRICO",
                 category: "Registro Urbano",
                 image: "Imagem/IMG_6.png",
@@ -1452,6 +1417,159 @@
                 image: "Imagem/IMG_4.jpg",
                 description: "Série fotográfica documental durante expedição por paisagens exóticas. Cada imagem conta uma história de descoberta e conexão com a natureza.",
                 tags: ["Viagem", "Documental", "Natureza"]
+            },
+            // Adicionando mais itens para testar a funcionalidade "Mostrar Mais"
+            {
+                id: 10,
+                title: "ENCANTOS E SABORES DA FEIRINHA",
+                category: "eventos",
+                image: "Imagem/IMG_12.jpg",
+                description: "Um pedaço da nossa cidade pulsando de vida e histórias.",
+                tags: ["Tradição", "Encontro", "Vitalidade"]
+            },
+            {
+                id: 11,
+                title: "CORES QUE CONTAM HISTÓRIAS",
+                category: "eventos",
+                image: "Imagem/IMG_11.jpg",
+                description: "Onde os sabores, as risadas e a tradição se encontram! .",
+                tags: ["Tradição", "Comunidade", "Autenticidade"]
+            },
+            {
+                id: 12,
+                title: "REFLEXO DOURADO NAS DUNAS",
+                category: "viagens",
+                image: "Imagem/IMG_13.jpg",
+                description: "A silhueta humana, pequena diante da imensidão, encontra a tranquilidade onde as dunas douradas mergulham na água espelhada.",
+                tags: ["Natureza", "Reflexão", "Descoberta"]
+            },
+            {
+                id: 13,
+                title: "ENCONTROS E RISADAS",
+                category: "ensaios",
+                image: "Imagem/IMG_14.jpg",
+                description: "Dois amigos desfrutando um momento de descontração e alegria em um ambiente vibrante.",
+                tags: ["Amizade", "Brinde", "Memória"]
+            },
+            {
+                id: 14,
+                title: "COMPANHIA E CULTURA",
+                category: "ensaios",
+                image: "Imagem/IMG_15.jpg",
+                description: "A felicidade de estar junto, capturada em meio à energia vibrante da cidade.",
+                tags: ["Cultura", "Harmonia", "Amor"]
+            },
+            {
+                id: 15,
+                title: "VIBRAÇÃO AUTÊNTICA",
+                category: "ensaios",
+                image: "Imagem/IMG_17.jpg",
+                description: "Um sorriso genuíno que ilumina o ambiente.",
+                tags: ["Beleza", "Charme", "Riso"]
+            },
+            {
+                id: 16,
+                title: "ENCANTO AO ENTARDECER",
+                category: "ensaios",
+                image: "Imagem/IMG_18.jpg",
+                description: "Uma figura cativante sentada à beira-mar, exalando beleza e uma espontaneidade que se conecta com a paisagem.",
+                tags: ["Encanto", "Charme", "Desejo"]
+                            },
+            {
+                id: 17,
+                title: "ONDE A ALMA DESCANSA",
+                category: "ensaios",
+                image: "Imagem/IMG_19.jpg",
+                description: "Um momento de pausa e entrega total ao ritmo do oceano.",
+                tags: ["Paraíso", "Paz", "Ondas"]
+            },
+            {
+                id: 18,
+                title: "A FORÇA DA TRADIÇÃO",
+                category: "eventos",
+                image: "Imagem/IMG_16.jpg",
+                description: "Uma figura majestosa no centro da festa, celebrando a cultura com um vestido branco esvoaçante e detalhes coloridos.",
+                tags: ["Herança", "Raízes", "Celebração"]
+            },
+            {
+                id: 19,
+                title: "SILHUETA DOURADA",
+                category: "viagens",
+                image: "Imagem/IMG_20.jpg",
+                description: "Uma cena poética em tons dourados, capturando a serenidade de uma figura contemplativa diante do pôr do sol nas dunas.",
+                tags: ["Pôr do Sol", "Dunas", "Silhueta"]
+            },
+            {
+                id: 20,
+                title: "CALOR E LIBERDADE",
+                category: "viagens",
+                image: "Imagem/IMG_21.jpg",
+                description: "O relaxamento pleno sob a luz intensa do sol, evidenciando a harmonia entre corpo, areia e horizonte.",
+                tags: ["Luz Natural", "Relaxamento", "Horizonte"]
+            },
+            {
+                id: 21,
+                title: "CELEBRAÇÃO NAS DUNAS",
+                category: "viagens",
+                image: "Imagem/IMG_22.jpg",
+                description: "Um momento especial de união e alegria, registrado em meio às dunas com bolo, sorrisos e boas energias.",
+                tags: ["Aniversário", "Família", "Comemoração"]
+            },
+            {
+                id: 22,
+                title: "BELEZA NATURAL",
+                category: "viagens",
+                image: "Imagem/IMG_23.jpg",
+                description:  "Um retrato vibrante que destaca a conexão entre a modelo, a água cristalina e a energia tropical do ambiente.",
+                tags: ["Água Cristalina", "Tropical", "Retrato"]
+            },
+            {
+                id: 23,
+                title: "SORRISO DO VERÃO",
+                category: "viagens",
+                image: "Imagem/IMG_24.jpg",
+                description: "Um clique espontâneo e leve que transmite alegria, frescor e a vibração luminosa de um dia perfeito na lagoa.",
+                tags: ["Alegria", "Água Cristalina", "Sorriso"]
+            },
+            {
+                id: 24,
+                title: "ESPAÇO CULTURAL",
+                category: "Registro Urbano",
+                image: "Imagem/IMG_25.jpg",
+                description: "Mais que um local, um santuário para música e boa conversa. Um espaço onde histórias se entrelaçam entre xícaras de café e uma boa cerveja, criando uma atmosfera única de comunidade e inspiração.",
+                tags: ["Cafeteria", "Música", "Ponto Turístico"]
+            },
+            {
+                id: 25,
+                title: "ROTINA DOURADA",
+                category: "Registro Urbano",
+                image: "Imagem/IMG_26.jpg",
+                description: "O encontro entre movimento e calmaria, onde cada bicicleta repousa sob a luz quente do entardecer.",
+                tags: ["Pôr do Sol", "Cidade", "Cotidiano"]
+            },
+            {
+                id: 26,
+                title: "CAMINHOS DE LUZ",
+                category: "Registro Urbano",
+                image: "Imagem/IMG_27.jpg",
+                description: "Passos tranquilos guiados pela intensidade do sol que transforma o caminho em um espelho dourado.",
+                tags: ["Caminhada", "Luz", "Litoranea"]
+            },
+            {
+                id: 27,
+                title: "ENCONTRO AO ENTARDECER",
+                category: "Registro Urbano",
+                image: "Imagem/IMG_28.jpg",
+                description: "Conversas que se perdem no horizonte enquanto o sol mergulha suavemente no mar.",
+                tags: ["Amizade", "Natureza", "Paz"]
+            },
+            {
+                id: 28,
+                title: "SERENIDADE SUSPENSA",
+                category: "Registro Urbano",
+                image: "Imagem/IMG_29.jpg",
+                description: "Um momento de tranquilidade em meio ao verde, onde o balanço se torna abrigo e a calma encontra espaço para florescer.",
+                tags: ["Natureza", "Infância", "Momento"]
             }
         ];
 
@@ -1469,6 +1587,12 @@
         const modalDescription = document.getElementById('modalDescription');
         const modalClose = document.querySelector('.modal-close');
         const contactForm = document.getElementById('contactForm');
+        const worksShowMoreBtn = document.getElementById('worksShowMoreBtn');
+        const worksShowMoreContainer = document.getElementById('worksShowMoreContainer');
+
+        // Variáveis para controle da funcionalidade "Mostrar Mais"
+        let worksVisibleCount = 0;
+        const itemsPerLoad = 6; // Quantos itens carregar a cada clique
 
         // Navegação entre páginas
         navLinks.forEach(link => {
@@ -1503,12 +1627,12 @@
             nav.classList.toggle('active');
         });
 
-        // Carregar portfólio
+        // Carregar portfólio completo (sem funcionalidade "Mostrar Mais")
         function loadPortfolio() {
             portfolioGrid.innerHTML = '';
             portfolioItems.forEach(item => {
                 const portfolioItem = document.createElement('div');
-                portfolioItem.className = 'portfolio-item fade-in';
+                portfolioItem.className = 'portfolio-item';
                 portfolioItem.innerHTML = `
                     <img src="${item.image}" alt="${item.title}" class="portfolio-img">
                     <div class="portfolio-overlay">
@@ -1521,16 +1645,22 @@
             });
         }
 
-        // Carregar trabalhos
-        function loadWorks(filter = 'all') {
-            worksGrid.innerHTML = '';
+        // Carregar trabalhos com funcionalidade "Mostrar Mais"
+        function loadWorks(filter = 'all', initialLoad = false) {
+            if (initialLoad) {
+                worksVisibleCount = 0;
+                worksGrid.innerHTML = '';
+            }
+            
             const filteredItems = filter === 'all' 
                 ? workItems 
                 : workItems.filter(item => item.category === filter);
             
-            filteredItems.forEach((item, index) => {
+            const itemsToShow = filteredItems.slice(worksVisibleCount, worksVisibleCount + itemsPerLoad);
+            
+            itemsToShow.forEach((item, index) => {
                 const workItem = document.createElement('div');
-                workItem.className = 'work-item';
+                workItem.className = 'work-item visible';
                 workItem.innerHTML = `
                     <img src="${item.image}" alt="${item.title}" class="work-img">
                     <div class="work-content">
@@ -1544,6 +1674,15 @@
                 workItem.addEventListener('click', () => openModal(item));
                 worksGrid.appendChild(workItem);
             });
+            
+            worksVisibleCount += itemsToShow.length;
+            
+            // Mostrar ou ocultar o botão "Mostrar Mais"
+            if (worksVisibleCount >= filteredItems.length) {
+                worksShowMoreContainer.style.display = 'none';
+            } else {
+                worksShowMoreContainer.style.display = 'block';
+            }
         }
 
         // Filtro de trabalhos
@@ -1552,8 +1691,14 @@
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 const filter = btn.getAttribute('data-filter');
-                loadWorks(filter);
+                loadWorks(filter, true);
             });
+        });
+
+        // Evento para o botão "Mostrar Mais" dos trabalhos
+        worksShowMoreBtn.addEventListener('click', () => {
+            const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+            loadWorks(activeFilter);
         });
 
         // Modal para imagens
@@ -1597,7 +1742,7 @@
         // Inicialização
         document.addEventListener('DOMContentLoaded', () => {
             loadPortfolio();
-            loadWorks();
+            loadWorks('all', true);
         });
 
         // Melhorias para mobile
